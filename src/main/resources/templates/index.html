@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/include::include"></head>
+<head>
+    <title>FASTival</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
+    <link rel="stylesheet" href="/css/index.css">
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+<body>
+<!--header-->
+<header class="header_" th:include="include/header::header"></header>
+
+<!--body-->
+<div class="body_">
+    <!--상단-->
+    <div class="top_body_">
+        <section class="main_banner_">
+            <div id="slide">
+                <div class="wrap">
+                    <img src="images/example/ex02.jpg" alt="DJing"
+                         title="2DAYS / 4STAGES OVER 80 ACTS">
+                    <img src="images/example/ex01.jpg" alt="Rock" title="2020 COMPLETE LINEUP">
+                    <img src="images/example/ex03.jpg" alt="Colorful"
+                         title="PHASE 5 ANNOUNCED">
+                </div>
+                <div class="wrap_title">
+                    <p class="ws_title">2DAYS / 4STAGES OVER 80 ACTS</p>
+                    <p class="ws_title">2020 COMPLETE LINEUP</p>
+                    <p class="ws_title">PHASE 5 ANNOUNCED</p>
+                </div>
+                <input type="radio" name="pos" id="pos0" checked>
+                <input type="radio" name="pos" id="pos1">
+                <input type="radio" name="pos" id="pos2">
+                <div class="pos">
+                    <label for="pos0" onclick="click_slide(0)"></label>
+                    <label for="pos1" onclick="click_slide(1)"></label>
+                    <label for="pos2" onclick="click_slide(2)"></label>
+                </div>
+                <div class="wrap_arrow">
+                    <button type="button" id="wrap_prev" onclick="click_arrow(-1)"></button>
+                    <button type="button" id="wrap_next" onclick="click_arrow(1)"></button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--중간-->
+    <div class="middle_body_">
+        <div class="middle_left_">
+            <section class="calendar">
+                캘린더
+            </section>
+            <section class="upcoming">
+                다가오는 행사
+            </section>
+        </div>
+        <div class="middle_right_">
+            <section class="timeline">
+                타임라인
+            </section>
+        </div>
+    </div>
+
+    <!--하단-->
+    <div class="bottom_body_">
+        <section class="review_timeline">
+            후기 타임라인
+        </section>
+    </div>
+
+    <!--모바일-->
+    <div class="mo_middle_body_ none">
+        <section class="timeline">
+            타임라인
+        </section>
+        <section class="calendar">
+            캘린더
+        </section>
+        <section class="upcoming">
+            다가오는 행사
+        </section>
+        <section class="review_timeline">
+            후기 타임라인
+        </section>
+    </div>
+    <!--모바일 끝-->
+
+</div>
+
+<!--footer-->
+<footer class="footer_" th:include="include/footer::footer"></footer>

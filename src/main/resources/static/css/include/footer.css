@@ -1,0 +1,15 @@
+.footer_div {
+    width: 70%;
+    margin: 15px auto;
+    font-size: 11px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .footer_div {
+        width: 70%;
+        margin: 13px auto;
+        font-size: 11px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/include::include"></head>
+<head>
+    <title>행사 세부</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
+    <link rel="stylesheet" href="/css/festival/infoDetail.css">
+    <script type="text/javascript" src="/js/festival/info.js"></script>
+</head>
+<body>
+<!--header-->
+<header class="header_" th:include="include/header::header"></header>
+
+<!--body-->
+<div class="body_">
+    <section class="detail_summary_">
+        <section class="summary_title_">
+            <div>
+                <p class="title_category">
+                    <span class="category_state">티켓팅중</span>
+                    <span class="category_cls">페스티벌 / 음악</span>
+                </p>
+                <h1>ULTRA : KOREA 2019</h1>
+                <p class="title_Dday"><span>D - 48 </span></p>
+            </div>
+        </section>
+        <section class="summary_content_">
+            <div class="sc_div_">
+                <div class="sc_left">
+                    <img th:src="@{/images/festival/umf2019_post.jpg}">
+                </div>
+                <div class="sc_right">
+                    <p class="content_date_">
+                        <span class="span_title">일시</span>
+                        <span class="span_content">2019.06.07 ~ 06.09</span><span class="span_etc">( 3days )</span>
+                    </p>
+                    <p class="content_company_">
+                        <span class="span_title">주최 / 주관</span>
+                        <span class="span_content">UC KOREA</span>
+                    </p>
+                    <p class="content_grade_">
+                        <span class="span_title">관람 등급</span>
+                        <span class="span_content">만 19세 이상</span>
+                    </p>
+                    <p class="content_lineup_">
+                        <span class="span_title">라인업</span>
+                        <span class="span_content"># 미정</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="detail_nav_">
+        <div class="nav_tab_">
+            <button class="btn_tab">상세 정보</button>
+            <button class="btn_tab">라인업</button>
+            <button class="btn_tab">타임테이블</button>
+            <button class="btn_tab">구매 링크</button>
+        </div>
+    </section>
+    <section class="detail_info_">
+        <div class="info_content_">
+
+        </div>
+    </section>
+</div>
+
+<!--footer-->
+<footer class="footer_" th:include="include/footer::footer"></footer>

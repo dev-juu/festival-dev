@@ -1,0 +1,43 @@
+<!--logo, category-->
+<div th:fragment="header">
+    <div class="background none"></div>
+    <div class="header_div">
+        <div id="header_logo" onclick="location.href='/'">
+            FASTival
+        </div>
+
+        <div id="nav_">
+            <div class="left_">
+                <ul>
+                    <li class="main_tab_ click_"><a href="/festival/info" class="tab_festival">행사</a></li>
+                    <li class="main_tab_ click_"><a href="/timeline/timeline" class="tab_timeline">타임라인</a></li>
+                    <li class="more_tab_"><a>더보기<img src="/images/include/down_arrow.png"></a>
+                        <ul class="more_sub_tab_">
+                            <li>
+                                <div class="more_tab_div">
+                                    <ul class="tab_festival">
+                                        <li class="tab_li_title">행사</li>
+                                        <li class="click_"><a href="/festival/info">행사 정보</a></li>
+                                        <li class="click_"><a href="/festival/calendar">캘린더</a></li>
+                                        <li class="click_"><a href="/festival/chat">챗</a></li>
+                                    </ul>
+                                    <ul class="tab_timeline">
+                                        <li class="tab_li_title">타임라인</li>
+                                        <li class="click_"><a href="/timeline/timeline">타임라인</a></li>
+                                        <li class="click_"><a href="/timeline/review">후기</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_">
+                <ul>
+                    <li><a href="/member/join">회원가입</a></li>
+                    <li><a href="/member/login">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

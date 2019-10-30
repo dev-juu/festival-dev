@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/include::include"></head>
+<head>
+    <title>행사정보</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
+    <link rel="stylesheet" href="/css/festival/info.css">
+    <script type="text/javascript" src="/js/festival/info.js"></script>
+</head>
+<body>
+<!--header-->
+<header class="header_" th:include="include/header::header"></header>
+
+<!--body-->
+<div class="body_">
+
+    <section class="content_category_">
+        <section class="content_title_">
+            <div class="intro_title_">
+                <button type="button" class="btn_intro">
+                    <h1>모든 행사</h1>
+                    <img th:src="@{/images/festival/arrow_button.png}" width="45px">
+                </button>
+            </div>
+        </section>
+        <section class="content_filter_">
+            <select id="slt_filter" class="slt_filter">
+                <option id="favorite">인기순</option>
+                <option id="new">최신순</option>
+                <option id="time">시간순</option>
+            </select>
+            <input id="a5" type="checkbox"><label for="a5">티켓팅 진행중인 행사만</label>
+        </section>
+    </section>
+
+    <section class="content_body_">
+        <article class="infoContent">
+            <a href="/festival/infoDetail">
+                <div class="infoContentImg">
+                    <img th:src="@{/images/festival/umf2019_post.jpg}">
+                </div>
+                <p class="infoContent_category">
+                    <span class="infoContent_state">티켓팅중</span>
+                    <span class="infoContent_cls">페스티벌 / 음악</span>
+                </p>
+                <p class="infoContent_title">
+                    <strong>
+                        ULTRA : KOREA 2019
+                    </strong>
+                </p>
+                <p class="infoContent_detail">
+                    <span class="infoContent_Dday">48일 전</span>
+                    <span class="infoContent_devide">|</span>
+                    <span class="infoContent_date">2019.06.07 ~ 09</span>
+                </p>
+            </a>
+        </article>
+        <article class="infoContent">
+            <div class="infoContentImg">
+                <img th:src="@{/images/festival/pen2019_post.png}">
+            </div>
+            <p class="infoContent_category">
+                <span class="infoContent_state">행사종료</span>
+                <span class="infoContent_cls">페스티벌 / 음악</span>
+            </p>
+            <p class="infoContent_title">
+                <strong>
+                    INCHEON PENTAPORT MUSIC FESTIVAL
+                </strong>
+            </p>
+            <p class="infoContent_detail">
+                <span class="infoContent_Dday">종료</span>
+                <span class="infoContent_devide">|</span>
+                <span class="infoContent_date">2019.06.18 ~ 08.12</span>
+            </p>
+        </article>
+        <article class="infoContent">
+            <div class="infoContentImg">
+                <img th:src="@{/images/festival/world2018_post.jpg}">
+            </div>
+            <p class="infoContent_category">
+                <span class="infoContent_state">티켓팅전</span>
+                <span class="infoContent_cls">페스티벌 / 음악</span>
+            </p>
+            <p class="infoContent_title">
+                <strong>
+                    WORLD DJ FESTIVAL 2019
+                </strong>
+            </p>
+            <p class="infoContent_detail">
+                <span class="infoContent_Dday">82일 전</span>
+                <span class="infoContent_devide">|</span>
+                <span class="infoContent_date">2019.06.07 ~ 09</span>
+            </p>
+        </article>
+    </section>
+
+</div>
+
+<!--footer-->
+<footer class="footer_" th:include="include/footer::footer"></footer>

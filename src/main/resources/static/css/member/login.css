@@ -1,0 +1,165 @@
+.body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.login_body_ {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    top: 50%;
+    display: inline-block;
+    width: 400px;
+    height: 600px;
+    margin: auto;
+}
+
+.login_title_ {
+    height: 52px;
+    margin: 10px 0px;
+    font-size: 35px;
+    font-weight: 800;
+    color: #2b2b2b;
+}
+
+.login_content_ {
+    height: calc(100% - 72px);
+}
+
+.login_save {
+    margin: 20px 0px;
+}
+
+.login_btn:hover {
+    border: 1px solid #2989da;
+    background: #2989da;
+    color: #e6e6e6;
+}
+
+.separator {
+    margin: 20px 0px;
+    border: 1px solid rgba(0, 0, 0, .09);
+}
+
+.oauth_btn {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: #fff;
+    width: 46%;
+    border-radius: 2px;
+    vertical-align: middle;
+    color: #2b2b2b;
+    font-family: "Noto Sans KR", -apple-system, Dotum, sans-serif;
+    height: 50px;
+    line-height: 1.2em;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0px 10px;
+    margin: 15px 5px 0px 5px;
+}
+
+.oauth_btn img, .oauth_btn span {
+    vertical-align: middle;
+}
+
+.oauth_btn span {
+    margin-left: 5px;
+}
+
+#a3 {
+    display: none;
+}
+
+#a3:checked + label:after {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: #3494E6;
+    border-radius: 50%;
+}
+
+label[for='a3'] {
+    padding-left: 27px;
+    position: relative;
+}
+
+label[for='a3']:before {
+    margin-top: 2px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 5px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.oauth_btn_div {
+    text-align: center;
+}
+
+.member_txt:active, .member_txt:focus {
+    border-color: #3494E6;
+}
+
+@media screen and (max-width: 768px) {
+    .login_body_ {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        height: 430px;
+    }
+
+    .login_title_ {
+        margin: 0px 0px 5px 0px;
+        font-size: 25px;
+        height: auto;
+    }
+
+    .member_txt {
+        margin-top: 10px;
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .login_save {
+        margin: 10px 0px;
+        font-size: 13px;
+    }
+
+    .member_btn {
+        margin-top: 15px;
+        font-size: 15px;
+        height: 50px;
+    }
+
+    .separator {
+        margin: 15px 0px 5px 0px;
+    }
+
+    .oauth_btn {
+        width: 45%;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .footer_ {
+        background-color: transparent;
+        border-top: none;
+    }
+
+    .footer_div {
+        display: none;
+    }
+
+}

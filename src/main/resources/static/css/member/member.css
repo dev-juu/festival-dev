@@ -1,0 +1,31 @@
+.email_check, .passwd_check, .passwd_confirm_check, .form_alert {
+    color: #f25555;
+    font-size: 13px;
+    margin: 5px 0px 0px 3px;
+}
+
+.wrong_type {
+    border-color: #f25555 !important;
+    background-color: #f255551a;
+}
+
+.already_ {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #2b2b2b;
+}
+
+.already_ a {
+    margin-left: 5px;
+    color: #f25555;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .already_ {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+}

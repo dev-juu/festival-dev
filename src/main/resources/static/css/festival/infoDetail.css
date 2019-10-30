@@ -1,0 +1,134 @@
+.detail_summary_ {
+    width: 100%;
+    height: 800px;
+    padding-bottom: 50px;
+}
+
+.detail_info_ {
+    width: 60%;
+    height: 100%;
+    padding: 35px 20% 0px 20%;
+    display: inline-block;
+}
+
+
+.summary_content_ {
+    height: calc(100% - 260px);
+}
+
+.summary_title_ {
+    position: relative;
+    height: 260px;
+}
+
+.summary_title_ div {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+}
+
+.summary_title_ h1 {
+    font-size: 35px;
+    margin: 5px 0px;
+}
+
+.category_state {
+    padding: 3px 10px;
+    font-size: 13px;
+    background: rebeccapurple;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.category_cls {
+    padding-left: 5px;
+    font-size: 13px;
+    color: #585858;
+    font-weight: bold;
+}
+
+.title_Dday {
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 20px;
+    color: rgb(52, 148, 230);
+}
+
+
+.sc_div_ {
+    width: 65%;
+    height: calc(100% - 20px);
+    margin: 10px auto;
+}
+
+.sc_left {
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: 55%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sc_left img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sc_right {
+    display: inline-block;
+    float: right;
+    width: calc(45% - 100px);
+    height: 100%;
+    padding: 0px 50px;
+}
+
+.sc_right p{
+    margin-bottom: 30px;
+}
+
+.span_title {
+    display: block;
+    color: #585858;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+
+.span_content {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.span_etc {
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 20px;
+
+}
+
+
+.nav_tab_{
+    display: block;
+    width:70%;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, .09);
+}
+
+.btn_tab{
+
+    color: rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(52, 148, 230);
+    padding-bottom: calc(0.5rem - 3px);
+}
+
+.info_content_{
+    background: #f6f5f5;
+    height: 100%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/include::include"></head>
+<head>
+    <title>회원가입</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
+    <link rel="stylesheet" href="/css/member/member.css">
+    <link rel="stylesheet" href="/css/member/join.css">
+    <script type="text/javascript" src="/js/member/join.js"></script>
+</head>
+<body>
+<!--header-->
+<header class="header_" th:include="include/header::header"></header>
+
+<!--body-->
+<div class="body_">
+    <div class="join_body_">
+        <div class="join_title_">
+            <span>회원가입</span>
+        </div>
+        <div class="join_content_">
+            <div class="join_terms_">
+                <input id="a4" type="checkbox"><label for="a4"><b>전체 동의</b></label>
+            </div>
+            <form id="join_form">
+                <div id="email_div" class="member_txt">
+                    <input type="text" id="email" class="email_txt" placeholder="이메일 계정" autocomplete=off>
+                    <button type="button" id="email_confirm" class="member_btn email_btn">
+                        인증하기
+                    </button>
+                </div>
+                <p class="email_info">위 이메일로 인증번호가 발송됩니다.</p>
+                <p class="email_check none"></p>
+                <div id="name_div" class="member_txt">
+                    <input type="text" id="name" class="join_txt" placeholder="이름" autocomplete=off>
+                    <img class="join_icon" th:src="@{/images/member/name_icon.png}">
+                </div>
+                <div id="passwd_div" class="member_txt">
+                    <input type="password" id="passwd" class="join_txt" placeholder="비밀번호 입력" autocomplete=off>
+                    <img class="join_icon" th:src="@{/images/member/lock_icon.png}">
+                </div>
+                <p class="passwd_check none"></p>
+                <div id="passwd_confirm_div" class="member_txt">
+                    <input type="password" id="passwd_confirm" class="join_txt" placeholder="비밀번호 확인"
+                           autocomplete=off>
+                    <img class="join_icon" th:src="@{/images/member/lock_icon.png}">
+                </div>
+                <p class="passwd_confirm_check none"></p>
+                <p class="form_alert none"></p>
+                <button type="button" onclick="join()" class="member_btn">완료</button>
+            </form>
+            <div class="already_">
+                <span>이미 FASTival 계정이 있나요?</span>
+                <a href="/member/login">로그인</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<footer class="footer_" th:include="include/footer::footer"></footer>

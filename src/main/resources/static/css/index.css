@@ -1,0 +1,256 @@
+.main_banner_ {
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+    position: relative;
+}
+
+.middle_body_ {
+    width: 70%;
+    height: 1000px;
+    margin: 30px auto;
+    border: 1px solid rebeccapurple;
+}
+
+.middle_left_ {
+    float: left;
+    width: 30%;
+}
+
+.middle_right_ {
+    float: right;
+    height: 1000px;
+    width: calc(100% - 32%);
+    border: 1px solid rebeccapurple;
+}
+
+.calendar, .upcoming {
+    height: 350px;
+    border: 1px solid rebeccapurple;
+    margin-bottom: 20px;
+}
+
+.timeline {
+    height: 100%;
+}
+
+.bottom_body_ {
+    width: 70%;
+    height: 450px;
+    margin: 0px auto;
+    border: 1px solid rebeccapurple;
+}
+
+#slide {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden
+}
+
+#slide .wrap {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300%;
+}
+
+#slide .wrap_title {
+    position: absolute;
+    left: 0;
+    width: 300%;
+    bottom: 30px;
+    padding: 0px 15%;
+}
+
+#slide .wrap:after, #slide .wrap_title:after {
+    clear: both;
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+}
+
+#slide .wrap img {
+    height: 100%;
+}
+
+#slide .wrap img, #slide .wrap_title .ws_title {
+    width: calc(100% / 3);
+    float: left;
+}
+
+.ws_title {
+    font-family: 'Noto Sans KR' !important;
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+    text-shadow: 2px 3px 10px black;
+}
+
+#slide input {
+    display: none;
+}
+
+/*안보이게 만든 radio대신 label을 radio로 만들기*/
+#slide label {
+    width: 30px;
+    height: 5px;
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/*label들*/
+#slide .pos {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+/* bullet 조작 */
+#pos0:checked ~ .pos label:nth-child(1),
+#pos1:checked ~ .pos label:nth-child(2),
+#pos2:checked ~ .pos label:nth-child(3) {
+    background: #3494E6;
+}
+
+.wrap_arrow {
+    position: absolute;
+    bottom: 10px;
+    right: 15%;
+}
+
+.wrap_arrow button {
+    font-family: "Nanum Gothic";
+    vertical-align: top;
+    display: inline-block;
+    background-color: black;
+    height: 45px;
+    width: 45px;
+    border: 1px solid black;
+    opacity: 0.7;
+}
+
+.wrap_arrow button:before {
+    vertical-align: middle;
+    color: white;
+    font-size: 20px;
+}
+
+.wrap_arrow button:active, .wrap_arrow button:focus {
+    opacity: 1;
+}
+
+#wrap_prev {
+    border-radius: 2px 0px 0px 2px;
+    margin-right: -3px;
+}
+
+#wrap_next {
+    border-radius: 0px 2px 2px 0px;
+}
+
+#wrap_next:before {
+    content: ">";
+}
+
+#wrap_prev:before {
+    content: "<";
+}
+
+.wrap_arrow button:focus {
+    outline: none;
+}
+
+.wrap_arrow button img {
+    width: 30px;
+    height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .main_banner_ {
+        height: 200px;
+    }
+
+    #slide .pos {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    #slide, #slide .wrap, #slide .wrap img {
+        height: 100%;
+    }
+
+    #slide .wrap_title {
+        padding: 0px 20px;
+    }
+
+    #slide label {
+        width: 30px;
+        height: 5px;
+        border: none;
+        border-radius: 0;
+    }
+
+    .ws_title {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    #wrap_prev {
+        margin-right: -4px;
+    }
+
+    .wrap_arrow {
+        right: 10px;
+    }
+
+    .wrap_arrow button {
+        height: 30px;
+        width: 30px;
+    }
+
+    .wrap_arrow button:before {
+        font-size: 10px;
+    }
+
+    #slide .wrap img, #slide .wrap_title .ws_title {
+        margin-bottom: 10px;
+    }
+
+    .middle_body_, .bottom_body_ {
+        display: none;
+    }
+
+    .mo_middle_body_ {
+        display: block;
+    }
+
+    .mo_middle_body_ section {
+        padding: 10px;
+        border-bottom: 1px solid #585858;
+    }
+
+    .timeline {
+        height: 500px;
+    }
+
+    .calendar, .upcoming {
+        height: 300px;
+        border: none;
+    }
+
+    .review_timeline {
+        height: 300px;
+    }
+
+}
