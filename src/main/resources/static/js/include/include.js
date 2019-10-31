@@ -48,3 +48,27 @@ function header_select() {
         $(".tab_timeline").css("color", "#3494E6");
     }
 }
+
+function public_ajax(url, param = '') {
+    let result;
+    $.ajax({
+        url: url,
+        dataType: "json",
+        type: "POST",
+        contentType: 'application/json', // 추가
+        async: false,
+        data: JSON.stringify(param),
+        success: function (data) {
+            if (data.state == 200||data.state ==400) {
+                result = data;
+            } else {
+                console.error(data.message);
+                result = false;
+            }
+        }, error: function (a, b, c) {
+            console.error(c);
+            result = false;
+        }
+    });
+    return result;
+}

@@ -24,6 +24,15 @@ function login() {
     } else {
         $(".member_txt").removeClass('wrong_type');
         $(".passwd_check").addClass("none");
+        // 하단부분 추가 [muzi]
+        var ajax_url = "/member/login";
+        var param = {"mem_email": email, "mem_passwd":passwd};
+        var result = public_ajax(ajax_url, param);
+        if(result.state==200){
+            location.href = "/";
+        }else if(result.state==400){
+            alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+        }
     }
-
 }
+
