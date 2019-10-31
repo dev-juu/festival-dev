@@ -12,4 +12,7 @@ public interface MemberDAO {
     @Select("select count(*) from tb_member where mem_email = #{mem_email} and mem_passwd = #{mem_passwd}")
     public int login(MemberDTO dto);
 
+    @Select("select count(*) from tb_member where ${type} = #{value}")
+    public int select_overlap(String type, String value);
+
 }

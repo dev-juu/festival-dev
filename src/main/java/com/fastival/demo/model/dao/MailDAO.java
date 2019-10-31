@@ -14,9 +14,12 @@ public interface MailDAO {
     public void insertMailCertification(MailDTO dto);
 
     @Select("select mail_no, count(*) from tb_mail_certification where mail_address = #{mail_address} and mail_key = #{mail_key} and mail_state = #{mail_state}")
-    public Map<String,Object> selectCheckCount(MailDTO dto);
+    public Map<String, Object> selectCheckCount(MailDTO dto);
 
     @Update("update tb_mail_certification set mail_state = #{mail_state} where mail_no = #{mail_no}")
     public void updateMailCertification(MailDTO dto);
+
+    @Select("select LAST_INSERT_ID()")
+    public int selectLastInsertId();
 
 }

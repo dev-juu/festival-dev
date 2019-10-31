@@ -15,4 +15,6 @@ public interface MailService {
 
     public boolean sendMail(String to,String subject, String text);
 
+    public int selectLastInsertId();
+
 }

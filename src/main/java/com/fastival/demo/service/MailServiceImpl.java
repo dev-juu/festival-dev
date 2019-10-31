@@ -10,7 +10,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -63,5 +62,10 @@ public class MailServiceImpl implements MailService {
         Context context = new Context();
         context.setVariable("text", text);
         return templateEngine.process("/member/mail", context);
+    }
+
+    @Override
+    public int selectLastInsertId() {
+        return mailDAO.selectLastInsertId();
     }
 }

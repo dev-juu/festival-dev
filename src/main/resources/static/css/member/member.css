@@ -1,4 +1,4 @@
-.email_check, .passwd_check, .passwd_confirm_check, .form_alert {
+.email_check, .passwd_check, .passwd_confirm_check, .form_alert, .nickname_check {
     color: #f25555;
     font-size: 13px;
     margin: 5px 0px 0px 3px;

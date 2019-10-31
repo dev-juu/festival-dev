@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/member/*")
@@ -38,6 +40,7 @@ public class MemberController {
         String mem_email = dto.getMem_email();
         String mem_passwd = dto.getMem_passwd();
         String mem_nickname = dto.getMem_nickname();
+        System.out.println(mem_email+mem_passwd+mem_nickname);
         if (CommonUntil.isEmpty(mem_email) || CommonUntil.isEmpty(mem_passwd) || CommonUntil.isEmpty(mem_nickname)) {
             return new ResponseEntity(new CustomReturn(400, "[join] Null Point Exception.", null), HttpStatus.NOT_FOUND);
         } else {
@@ -66,5 +69,12 @@ public class MemberController {
                 return new ResponseEntity(new CustomReturn(400, "Not Found Accounts.", null), HttpStatus.OK);
             }
         }
+    }
+
+    @RequestMapping(value = "overlap", method = RequestMethod.POST)
+    public ResponseEntity<?> select_overlap(@RequestBody Map<String, Object> map) {
+        String type = "mem_" + String.valueOf(map.get("type"));
+        int count = memberService.select_overlap(type, String.valueOf(map.get("value")));
+        return new ResponseEntity(new CustomReturn(200, "Member Overlap success.", count), HttpStatus.OK);
     }
 }
