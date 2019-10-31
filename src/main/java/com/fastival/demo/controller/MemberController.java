@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
@@ -46,20 +47,23 @@ public class MemberController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
+    @ResponseBody // json타입 ajax를 사용하기 위해 추가 [muzi]
     public ResponseEntity<?> create_login_token(@RequestBody MemberDTO dto, HttpServletResponse response) {
         String mem_email = dto.getMem_email();
         String mem_passwd = dto.getMem_passwd();
         if (CommonUntil.isEmpty(mem_email) || CommonUntil.isEmpty(mem_passwd)) {
-            return new ResponseEntity(new CustomReturn(400, "[login] Null Point Exception.", null), HttpStatus.NOT_FOUND);
+            // HttpStatus.OK가 아니면 ajax시 리턴값이 404로 나와서 OK로 수정 [muzi]
+            return new ResponseEntity(new CustomReturn(400, "[login] Null Point Exception.", null), HttpStatus.OK);
         } else {
             int result = memberService.login(dto);
             if (result > 0) {
-                Cookie cookie = new Cookie("_fid", "dd");
+                Cookie cookie = new Cookie("_fid",mem_email );
                 cookie.setMaxAge(60 * 60 * 12);
                 response.addCookie(cookie);
                 return new ResponseEntity(new CustomReturn(200, "Login success.", null), HttpStatus.OK);
             } else {
-                return new ResponseEntity(new CustomReturn(404, "Not Found Accounts.", null), HttpStatus.NOT_FOUND);
+                // HttpStatus.OK가 아니면 ajax시 리턴값이 404로 나와서 OK로 수정 [muzi]
+                return new ResponseEntity(new CustomReturn(400, "Not Found Accounts.", null), HttpStatus.OK);
             }
         }
     }
