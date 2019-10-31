@@ -2,17 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spring Boot Mail</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css">
-        body {
-            font-size: 8px;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<span>안녕하세요.</span>
-<span>변수는 이렇게 넘겨져서 보내집니다.</span>
-<span th:text="${text}"></span>
-<span>감사합니다.</span>
+<section class="mailDiv" style="
+    height: 430px;
+    width: 450px;
+    border-bottom: 3px solid #585858;">
+    <div class="header" style="height: 300px;
+    width: 100%;
+    background-color: #585858;">
+        <h1 style="text-align: center;
+    padding: 110px 0px 80px 0px;
+    margin: 0px;
+    font-size: 30px;
+    color: white;">Fastival</h1>
+        <div class="certificateNum" style="width: 100%;
+    text-align: center;"><span th:text="${text}" style=" display: inline-block;
+    width: 150px;
+    height: 45px;
+    color: white;
+    background-color: #f25555;
+    line-height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 2px;"></span></div>
+    </div>
+    <div class="detail" style=" margin-top: 40px;
+    font-size: 12px;
+    color: #202020;
+    text-align: center;">
+        <p><span>이메일 인증번호를 입력하시면 인증절차가 완료되어 가입을 진행하실 수 있습니다.</span></p>
+        <p><span>인증시간이 만료되었을 경우, 인증번호 재발송을 진행해 주시기 바랍니다.</span></p>
+    </div>
+</section>
 </body>
 </html>

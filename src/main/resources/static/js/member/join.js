@@ -40,8 +40,8 @@ $(function () {
                 data: JSON.stringify(param),
                 success: function (data) {
                     if (data.state == 200) {
-                        $("#btn_emailConfirm").text("재전송").css("background-color", "#fff").css("color", "rgba(0, 0, 0, 0.47)").css("border-color", "rgba(0, 0, 0, 0.15)");
-                        $("#email_certification_div").removeClass("none");
+                        $("#email_certification_div,#btn_reConfirm").removeClass("none");
+                        $("#btn_emailConfirm").addClass("none");
                         $(".email_info").css("color", "#3494E6").html("인증번호가 발송되었습니다.<br>메일에 입력된 4자리 숫자를 입력하세요.");
                         _Timer = setInterval('certification_time()', 1000);
                         _Mno = data.result;
@@ -50,6 +50,10 @@ $(function () {
                     }
                 }, error: function (a, b, c) {
                     console.error(c);
+                }, beforeSend: function () {
+                    $("#btn_emailConfirm").attr("disabled", "disabled");
+                }, complete: function () {
+                    $("#btn_emailConfirm").removeAttr("disabled");
                 }
             });
         }
@@ -83,7 +87,8 @@ $(function () {
 
     $("#btn_reConfirm").click(function () {
         $("#btn_emailConfirm").removeClass('none').text("인증하기").css("background-color", "#3494E6").css("color", "#fff").css("border-color", "#3494E6");
-        $("#btn_reConfirm").addClass('none');
+        clearInterval(_Timer);
+        $("#btn_reConfirm,#email_certification_div").addClass('none');
         $(".email_info").css("color", "black").html("위 이메일로 인증번호가 발송됩니다.");
         $("#email").attr("readonly", false);
         $("#email_certification").val("");
@@ -101,6 +106,9 @@ function certification_time() {
         _baseTime = _baseTime;
     } else {
         $(".emailCertification_time").html("인증시간초과").css("font-weight", "600");
+        $("#email").val("");
+        $("#btn_emailConfirm").removeClass('none').text("인증하기").css("background-color", "#3494E6").css("color", "#fff").css("border-color", "#3494E6");
+        $(".email_info").css("color", "black").html("위 이메일로 인증번호가 발송됩니다.");
         let param = {
             "mail_no": _Mno,
             "mail_state": 2

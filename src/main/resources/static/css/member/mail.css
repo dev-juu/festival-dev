@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+.mailDiv {
+    font-family: 'Nanum Gothic';
+    height: 430px;
+    width: 450px;
+    border-bottom: 3px solid #585858;
+}
+
+.header {
+    height: 300px;
+    width: 100%;
+    background-color: #585858;
+}
+
+.header h1 {
+    text-align: center;
+    padding: 110px 0px 80px 0px;
+    margin: 0px;
+    font-size: 30px;
+    color: white;
+}
+
+.certificateNum {
+    width: 100%;
+    text-align: center;
+}
+
+.certificateNum span {
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    color: white;
+    background-color: #f25555;
+    line-height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.detail {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #202020;
+    text-align: center;
+}
