@@ -45,10 +45,17 @@ public class MailController {
 
     @RequestMapping(value = "certification", method = RequestMethod.POST)
     public ResponseEntity<?> selectMailCertification(@RequestBody MailDTO dto) {
-        Map<String,Object> map = mailService.selectCheckCount(dto);
-        System.out.println(map);
-
-        return new ResponseEntity(new CustomReturn(200, "Mail Send success.", null), HttpStatus.OK);
+        Map<String, Object> map = mailService.selectCheckCount(dto);
+        int count = Integer.valueOf(String.valueOf(map.get("count(*)")));
+        if (count > 0 && 2 > count) {
+            int mail_no = Integer.valueOf(String.valueOf(map.get("mail_no")));
+            dto.setMail_no(mail_no);
+            dto.setMail_state(1);
+            mailService.updateMailCertification(dto);
+            return new ResponseEntity(new CustomReturn(200, "Mail Certification success.", null), HttpStatus.OK);
+        } else {
+            return new ResponseEntity(new CustomReturn(400, "Mail Certification fail.", null), HttpStatus.NOT_FOUND);
+        }
     }
 
 }
