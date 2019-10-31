@@ -1,0 +1,142 @@
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+html, body {
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+    font-family: 'Noto Sans KR';
+}
+
+body {
+    padding-bottom: 60px;
+    overflow-y: scroll;
+}
+
+.header_ {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .09);
+    height: 60px;
+    width: 100%;
+}
+
+
+.left_ {
+    display: inline-block;
+    float: left;
+}
+
+.right_ {
+    display: inline-block;
+    float: right;
+}
+
+.body_ {
+    /*position: relative;*/
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.body_::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.footer_ {
+    bottom: 0;
+    margin-top: 50px;
+    background-color: #fafbfc;
+    border-top: 1px solid #f0f2f5;
+    width: 100%;
+    height: auto;
+}
+
+.none {
+    display: none;
+}
+
+.member_txt {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    width: calc(100% - 27px);
+    vertical-align: middle;
+    color: rgba(0, 0, 0, 0.84);
+    font-family: "Noto Sans KR", -apple-system, Dotum, sans-serif;
+    height: 48px;
+    line-height: 1.2em;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0px 10px 0px 15px;
+    margin-top: 20px;
+}
+
+.member_btn {
+    outline: none;
+    border: 1px solid #3494E6;
+    background: #3494E6;
+    width: 100%;
+    border-radius: 2px;
+    vertical-align: middle;
+    color: #fff;
+    font-family: "Noto Sans KR", -apple-system, Dotum, sans-serif;
+    height: 55px;
+    line-height: 1.2em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 0px 10px;
+    margin-top: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button, input[type='button'] {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .header_ {
+        box-shadow: none;
+        height: 55px;
+        border-bottom: 1px solid #dadada66;
+    }
+
+    body {
+        overflow-y: auto;
+    }
+
+    .mobile_menu {
+        box-shadow: 0 1px 10px rgba(5, 5, 30, .09);
+        display: block !important;
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        background: #ffffff;
+    }
+
+    .mobile_menu a {
+        padding-top: 8px;
+        text-align: center;
+        width: calc(100% / 5);
+        float: left;
+    }
+
+    .mobile_menu a img {
+        margin: 0px auto;
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+
+    .mobile_menu a span {
+        vertical-align: bottom;
+        font-size: 10px;
+    }
+}

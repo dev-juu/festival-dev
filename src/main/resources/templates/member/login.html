@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/include::include"></head>
+<head>
+    <title>로그인</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
+    <link rel="stylesheet" href="/css/member/member.css">
+    <link rel="stylesheet" href="/css/member/login.css">
+    <script type="text/javascript" src="/js/member/login.js"></script>
+</head>
+<body>
+<!--header-->
+<header class="header_" th:include="include/header::header"></header>
+
+<!--body-->
+<div class="body_">
+    <div class="login_body_">
+        <div class="login_title_">
+            <span>로그인</span>
+        </div>
+        <div class="login_content_">
+            <form id="login_form" >
+                <input type="text" id="email" class="member_txt" placeholder="이메일 아이디" autocomplete=off>
+                <p class="email_check none"></p>
+                <input type="password" id="passwd" class="member_txt" placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자리 이상)"
+                       autocomplete=off>
+                <p class="passwd_check none"></p>
+                <div class="login_save">
+                    <input id="a3" type="checkbox"><label for="a3">아이디 저장</label>
+                </div>
+                <button type="button" onclick="login()" class="member_btn">로그인</button>
+            </form>
+            <hr class="separator">
+            <div class="oauth_btn_div">
+                <button type="button" class="oauth_btn"><img th:src="@{/images/member/oauth_kakao.png}"
+                                                             width="30px"><span>카카오</span>
+                </button>
+                <button type="button" class="oauth_btn"><img th:src="@{/images/member/oauth_naver.png}"
+                                                             width="30px"><span>네이버</span>
+                </button>
+                <button type="button" class="oauth_btn"><img th:src="@{/images/member/oauth_google.png}"
+                                                             width="30px"><span>구글</span>
+                </button>
+                <button type="button" class="oauth_btn"><img th:src="@{/images/member/oauth_facebook.png}"
+                                                             width="30px"><span>페이스북</span></button>
+            </div>
+            <div class="already_">
+                <span>아직 FASTival 계정이 없나요?</span>
+                <a href="/member/join">회원가입</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<footer class="footer_" th:include="include/footer::footer"></footer>

@@ -1,0 +1,252 @@
+.header_div {
+    width: 70%;
+    margin: 0px auto;
+    height: 100%;
+    line-height: 60px;
+}
+
+#header_logo {
+    width: 150px;
+    vertical-align: top;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 30px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#nav_ {
+    width: calc(100% - 180px);
+    vertical-align: top;
+    display: inline-block;
+}
+
+.left_ {
+    width: calc(99% - calc(calc(100% / 3) * 0.9));
+}
+
+.right_ {
+    width: calc(calc(100% / 3) * 0.9) !important;
+}
+
+#nav_ > .left_ > ul > li {
+    margin: 0px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+
+.main_tab_selected {
+    color: #3494E6 !important;
+}
+
+#nav_ > .right_ > ul > li {
+    margin: 0px 10px;
+    font-weight: bold;
+    font-size: 13px;
+    float: right;
+    line-height: 68px;
+}
+
+#nav_ > .right_ > ul > li > a {
+    color: #585858;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    margin: 0;
+}
+
+#header_logo {
+    cursor: pointer;
+}
+
+.more_tab_ {
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    color: #585858 !important;
+}
+
+.more_tab_ a {
+    color: #585858;
+}
+
+.more_tab_ img {
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.more_tab_ {
+    z-index: 100;
+}
+
+.more_tab_ ul li {
+    line-height: 1.5;
+    padding: 5px 20px;
+    display: block;
+    font-size: 15px !important;
+}
+
+.more_sub_tab_ {
+    width: 100%;
+    background-color: white;
+    z-index: 80;
+    position: absolute;
+    height: 0px;
+    overflow: hidden;
+    transition: height .2s;
+    -webkit-transition: height .2s;
+    -moz-transition: height .2s;
+    -o-transition: height .2s;
+    border-radius: 0px 0px 2px 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.more_tab_:hover .more_sub_tab_ {
+    border-top: 1px solid transparent;
+    -moz-border-image: -moz-linear-gradient(to right, #3494E6 0%, #EC6EAD 100%);
+    -webkit-border-image: -webkit-linear-gradient(to right, #3494E6 0%, #EC6EAD 100%);
+    border-image: linear-gradient(to right, #3494E6 0%, #EC6EAD 100%);
+    border-image-slice: 1;
+    height: auto;
+    display: block;
+}
+
+.more_tab_:hover
+.more_sub_tab_ li div {
+    text-align: left;
+    width: 50%;
+    margin: 30px auto;
+}
+
+.more_tab_div ul {
+    width: 130px;
+    border-left: 1px solid #dadada;
+    vertical-align: top;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.tab_li_title {
+    cursor: text !important;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.more_tab_div a {
+    font-size: 15px;
+    color: #585858;
+    font-weight: 400;
+}
+
+.main_tab_ a:active, .main_tab_ a:focus {
+    color: #3494E6;
+}
+
+.more_tab_div a:active, .more_tab_div a:focus {
+    color: #3494E6;
+}
+
+.background {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #1C1C1C;
+    z-index: 80;
+    opacity: 0.2;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1015px) {
+    #header_logo {
+        width: 150px;
+        margin-right: 20px;
+    }
+
+    #nav_ {
+        width: calc(100% - 175px);
+    }
+
+    .left_ {
+        width: calc(99% - calc(calc(100% / 3) * 0.9));
+    }
+
+    .right_ {
+        width: calc(calc(100% / 3) * 0.9) !important;
+    }
+
+    #nav_ > .left_ > ul > li {
+        margin: 0px;
+        width: calc(100% / 3);
+        text-align: center;
+    }
+
+    #nav_ > .right_ > ul > li {
+        margin: 0px;
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header_div {
+        line-height: 55px;
+        text-align: center;
+        width: 95%;
+        margin: 0px 13px;
+    }
+
+    #nav_ {
+        width: calc(65% - 20px);
+        float: right;
+    }
+
+    #nav_ .left_ {
+        width: 100%;
+    }
+
+    #nav_ > .left_ > ul > li, .more_tab_ {
+        font-size: 1.1em;
+        float: left;
+        text-align: center;
+        width: calc(100% / 3);
+        margin: 0px;
+    }
+
+    .more_tab_ {
+        font-size: 1.0em !important;
+    }
+
+    #nav_ > .right_ > ul > li {
+        margin: 0px 10px;
+    }
+
+    #header_logo {
+        width: calc(calc(100% / 3) + 20px);
+        margin: 0;
+        font-size: 2.0em;
+        float: left;
+    }
+
+    #nav_ > .right_ {
+        display: none;
+    }
+}
