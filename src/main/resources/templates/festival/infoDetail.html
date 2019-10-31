@@ -5,7 +5,7 @@
     <title>행사 세부</title>
     <link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/include/favicon.png}">
     <link rel="stylesheet" href="/css/festival/infoDetail.css">
-    <script type="text/javascript" src="/js/festival/info.js"></script>
+    <script type="text/javascript" src="/js/festival/infoDetail.js"></script>
 </head>
 <body>
 <!--header-->
@@ -52,15 +52,64 @@
     </section>
     <section class="detail_nav_">
         <div class="nav_tab_">
-            <button class="btn_tab">상세 정보</button>
-            <button class="btn_tab">라인업</button>
-            <button class="btn_tab">타임테이블</button>
-            <button class="btn_tab">구매 링크</button>
+            <div class="tab_btn_">
+                <button class="btn_tab btn_selected" id="btn_info" onclick="scroll_focus('info')">상세 정보</button>
+                <button class="btn_tab" id="btn_lineup" onclick="scroll_focus('lineup')">라인업</button>
+                <button class="btn_tab" id="btn_timetb" onclick="scroll_focus('timetable')">타임테이블</button>
+                <button class="btn_tab" id="btn_link" onclick="scroll_focus('ticketlink')">구매 링크</button>
+            </div>
         </div>
     </section>
     <section class="detail_info_">
         <div class="info_content_">
-
+            <div class="content_info_">
+                <div class="ic_title" id="info">상세 정보</div>
+                <img th:src="@{/images/festival/umf2019_info.jpg}">
+                <div class="info_etc"><strong>셔틀버스예약</strong><br/>
+                    <a href="https://ultrakakaomobility.co.kr/">https://ultrakakaomobility.co.kr/</a><br/>
+                    카카오T Ultra Korea 2019 셔틀버스 예약<br/>
+                    <a href="ultrakakaomobility.co.kr">ultrakakaomobility.co.kr</a><br/><br/>
+                    가격은 5,000원(서울,수도권)<br/>
+                    예약가능기간은 5/20~6/9<br/>
+                    취소가능일 6/6(목)23:59 까지<br/><br/>
+                    <strong>행사장행</strong><br/>
+                    서울 : 잠실역,강남역,사당역,중계역,왕십리역,서울역,합정역<br/>
+                    수도권 : 대화역,인천시청역,서현역,송내역,수원역<br/>
+                    지방 : 부산,대구,광주,울산,천안,청주,대전<br/><br/>
+                    <strong>귀가행</strong><br/>
+                    서울:잠실역,강남역,홍대입구역,이태원역<br/>
+                    수도권 : 대화역,인천시청역,서현역,송내역,수원역<br/>
+                    지방 : 부산,대구,광주,울산,천안,청주,대전<br/>
+                    (귀가행은 22:00부터 23:45분까지 각 노선 차량 만차시 출발)<br/>
+                </div>
+            </div>
+            <div class="content_lineup_">
+                <div class="ic_title" id="lineup">라인업</div>
+                <img th:src="@{/images/festival/umf2019_lineup.jpg}">
+            </div>
+            <div class="content_timetb_">
+                <div class="ic_title" id="timetable">타임테이블</div>
+                <img th:src="@{/images/festival/umf2019_timetb.jpg}">
+            </div>
+            <div class="content_link_">
+                <div class="ic_title" id="ticketlink">구매 링크</div>
+                <div class="link_text">
+                    <strong>오디스토어</strong><br/>
+                    <a href="http://odistore.kr/">http://odistore.kr/</a>
+                </div><br/>
+                <div class="link_text">
+                    <strong>멜론티켓</strong><br/>
+                    <a href="https://ticket.melon.com/main/index.html">https://ticket.melon.com/main/index.html</a>
+                </div><br/>
+                <div class="link_text">
+                    <strong>티켓링크</strong><br/>
+                    <a href="http://www.ticketlink.co.kr/">http://www.ticketlink.co.kr/</a>
+                </div><br/>
+                <div class="link_text">
+                    <strong>하나티켓</strong><br/>
+                    <a href="http://ticket.hanatour.com/Pages/Main.aspx">http://ticket.hanatour.com/Pages/Main.aspx</a>
+                </div><br/>
+            </div>
         </div>
     </section>
 </div>
