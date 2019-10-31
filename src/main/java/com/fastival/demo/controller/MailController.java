@@ -21,7 +21,7 @@ public class MailController {
     @Inject
     MailService mailService;
 
-    @RequestMapping(value = "send", method = RequestMethod.GET)
+    @RequestMapping(value = "send", method = RequestMethod.POST)
     public ResponseEntity<?> send_mail(@RequestBody MailDTO dto) {
         String mail_address = dto.getMail_address();
         if (!CommonUntil.isEmpty(mail_address)) { //이메일 값이 존재
@@ -30,7 +30,8 @@ public class MailController {
             if (mailService.sendMail(mail_address, subject, mail_key)) { //메일 전송 성공
                 dto.setMail_key(mail_key);
                 this.insert_mail(dto);
-                return new ResponseEntity(new CustomReturn(200, "Mail Send success.", null), HttpStatus.OK);
+                String last_idx = String.valueOf(mailService.selectLastInsertId());
+                return new ResponseEntity(new CustomReturn(200, "Mail Send success.", last_idx), HttpStatus.OK);
             } else { //메일 전송 실패
                 return new ResponseEntity(new CustomReturn(500, "Mail Send Error.", null), HttpStatus.SERVICE_UNAVAILABLE);
             }
@@ -51,11 +52,17 @@ public class MailController {
             int mail_no = Integer.valueOf(String.valueOf(map.get("mail_no")));
             dto.setMail_no(mail_no);
             dto.setMail_state(1);
-            mailService.updateMailCertification(dto);
+            this.update_mail(dto);
             return new ResponseEntity(new CustomReturn(200, "Mail Certification success.", null), HttpStatus.OK);
         } else {
             return new ResponseEntity(new CustomReturn(400, "Mail Certification fail.", null), HttpStatus.NOT_FOUND);
         }
+    }
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public ResponseEntity<?> update_mail(@RequestBody MailDTO dto) {
+        mailService.updateMailCertification(dto);
+        return new ResponseEntity(new CustomReturn(200, "Update success.", null), HttpStatus.OK);
     }
 
 }

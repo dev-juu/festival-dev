@@ -4,7 +4,7 @@
     transform: translate(-50%, -55%);
     top: 50%;
     display: inline-block;
-    width: 400px;
+    width: 350px;
     height: 600px;
     margin: auto;
 }
@@ -33,12 +33,13 @@
     font-family: "Noto Sans KR", -apple-system, Dotum, sans-serif;
     font-size: 16px;
     font-weight: 300;
-    width: calc(100% - 100px);
+    width: calc(100% - 128px);
     border: none;
     background-color: transparent;
 }
 
 .email_btn {
+    position: relative;
     width: 85px !important;
     vertical-align: top;
     margin: 4px 0px;
@@ -52,6 +53,7 @@
 .member_txt {
     padding-right: 3px !important;
     width: calc(100% - 20px);
+    position: relative;
 }
 
 .join_txt {
@@ -129,6 +131,16 @@ label {
     border-color: #3494E6;
 }
 
+.emailCertification_time {
+    display: inline-block;
+    color: #f25555;
+    position: absolute;
+    right: 95px;
+    top: 13px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 768px) {
     .join_body_ {
         left: 50%;
@@ -179,7 +191,7 @@ label {
         height: 50px;
     }
 
-    .email_check, .passwd_check, .passwd_confirm_check, .form_alert {
+    .email_check, .passwd_check, .passwd_confirm_check, .form_alert, .nickname_check {
         font-size: 12px;
     }
 

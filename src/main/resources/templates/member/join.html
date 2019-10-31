@@ -25,16 +25,28 @@
             <form id="join_form">
                 <div id="email_div" class="member_txt">
                     <input type="text" id="email" class="email_txt" placeholder="이메일 계정" autocomplete=off>
-                    <button type="button" id="email_confirm" class="member_btn email_btn">
+                    <button type="button" id="btn_emailConfirm" class="member_btn email_btn">
                         인증하기
+                    </button>
+                    <button type="button" id="btn_reConfirm" class="member_btn email_btn none">
+                        재전송
                     </button>
                 </div>
                 <p class="email_info">위 이메일로 인증번호가 발송됩니다.</p>
                 <p class="email_check none"></p>
-                <div id="name_div" class="member_txt">
-                    <input type="text" id="name" class="join_txt" placeholder="이름" autocomplete=off>
+                <div id="email_certification_div" class="member_txt none">
+                    <input type="text" id="email_certification" class="email_txt" placeholder="인증번호를 입력"
+                           autocomplete=off>
+                    <span class="emailCertification_time"></span>
+                    <button type="button" id="btn_emailCertification" class="member_btn email_btn">
+                        인증확인
+                    </button>
+                </div>
+                <div id="nickname_div" class="member_txt">
+                    <input type="text" id="nickname" class="join_txt" placeholder="닉네임" autocomplete=off>
                     <img class="join_icon" th:src="@{/images/member/name_icon.png}">
                 </div>
+                <p class="nickname_check none"></p>
                 <div id="passwd_div" class="member_txt">
                     <input type="password" id="passwd" class="join_txt" placeholder="비밀번호 입력" autocomplete=off>
                     <img class="join_icon" th:src="@{/images/member/lock_icon.png}">
