@@ -12,7 +12,6 @@ html, body {
 }
 
 body {
-    padding-bottom: 60px;
     overflow-y: scroll;
 }
 
@@ -34,7 +33,6 @@ body {
 }
 
 .body_ {
-    /*position: relative;*/
     width: 100%;
     display: inline-block;
     vertical-align: top;
@@ -48,7 +46,7 @@ body {
 
 .footer_ {
     bottom: 0;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     background-color: #fafbfc;
     border-top: 1px solid #f0f2f5;
     width: 100%;
@@ -109,6 +107,10 @@ button, input[type='button'] {
 
     body {
         overflow-y: auto;
+    }
+
+    .footer_ {
+        padding-bottom: 50px;
     }
 
     .mobile_menu {

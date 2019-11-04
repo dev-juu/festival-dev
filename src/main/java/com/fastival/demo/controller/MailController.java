@@ -53,7 +53,7 @@ public class MailController {
             dto.setMail_no(mail_no);
             dto.setMail_state(1);
             this.update_mail(dto);
-            return new ResponseEntity(new CustomReturn(200, "Mail Certification success.", null), HttpStatus.OK);
+            return new ResponseEntity(new CustomReturn(200, "Mail Certification success.", map), HttpStatus.OK);
         } else {
             return new ResponseEntity(new CustomReturn(400, "Mail Certification fail.", null), HttpStatus.NOT_FOUND);
         }

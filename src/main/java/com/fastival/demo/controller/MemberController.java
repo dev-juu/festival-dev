@@ -41,7 +41,6 @@ public class MemberController {
         String mem_email = dto.getMem_email();
         String mem_passwd = dto.getMem_passwd();
         String mem_nickname = dto.getMem_nickname();
-        System.out.println(mem_email + mem_passwd + mem_nickname);
         if (CommonUntil.isEmpty(mem_email) || CommonUntil.isEmpty(mem_passwd) || CommonUntil.isEmpty(mem_nickname)) {
             return new ResponseEntity(new CustomReturn(400, "[join] Null Point Exception.", null), HttpStatus.NOT_FOUND);
         } else {

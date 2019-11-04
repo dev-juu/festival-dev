@@ -63,26 +63,16 @@ $(function () {
         let email = $("#email").val();
         let certification = $("#email_certification").val();
         let param = {"mail_address": email, "mail_key": certification};
-        $.ajax({
-            url: "/mail/certification",
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(param),
-            success: function (data) {
-                if (data.state == 200) {
-                    $("#email_certification_div,#btn_emailConfirm").addClass('none');
-                    $(".email_info").css("color", "#3494E6").html("인증되었습니다.");
-                    $("#email").attr("readonly", true);
-                    $("#btn_reConfirm").removeClass('none');
-                    clearInterval(_Timer);
-                } else {
-                    alert("다시 시도해주세요.");
-                }
-            }, error: function (a, b, c) {
-                console.error(c);
-            }
-        });
+        let ajx_result = public_ajax("/mail/certification", param);
+        if (ajx_result.state == 200) {
+            $("#email_certification_div,#btn_emailConfirm").addClass('none');
+            $(".email_info").css("color", "#3494E6").html("인증되었습니다.");
+            $("#email").attr("readonly", true);
+            $("#btn_reConfirm").removeClass('none');
+            clearInterval(_Timer);
+        } else {
+            alert("다시 시도해주세요.");
+        }
     });
 
     $("#btn_reConfirm").click(function () {
@@ -113,18 +103,7 @@ function certification_time() {
             "mail_no": _Mno,
             "mail_state": 2
         };
-        $.ajax({
-            url: "/mail/update",
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(param),
-            success: function (data) {
-                console.log("OK");
-            }, error: function (a, b, c) {
-                console.error(c);
-            }
-        });
+        public_ajax("/mail/update", param);
         clearInterval(_Timer);
     }
 }
@@ -175,37 +154,31 @@ function join_overlap(obj) {
     let join_type = $(obj).attr("id");
     let join_value = $("#" + join_type).val();
     let param = {"type": join_type, "value": join_value};
-    $.ajax({
-        url: "/member/overlap",
-        dataType: "json",
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        data: JSON.stringify(param),
-        async: false,
-        success: function (data) {
-            if (!data.state == 200 || !data.result == 0) {
-                $("." + join_type + "_check").removeClass('none');
-                let text = (join_type == "email") ? '이메일' : '닉네임'
-                $("." + join_type + "_check").html("이미 사용중인 " + text + "입니다.");
-                result = false;
-            } else {
-                $(".nickname_check").addClass('none');
-                result = true;
-            }
-        }, error: function (a, b, c) {
-            console.error(c);
-        }
-    });
+    let ajx_result = public_ajax("/member/overlap", param);
+    if (ajx_result.state == 200 && ajx_result.result != 0) {
+        $("." + join_type + "_check").removeClass('none');
+        let text = (join_type == "email") ? '이메일' : '닉네임'
+        $("." + join_type + "_check").html("이미 사용중인 " + text + "입니다.");
+        result = false;
+    } else if (ajx_result.state == 200 && ajx_result.result == 0) {
+        $(".nickname_check").addClass('none');
+        result = true;
+    }
     return result;
 }
 
 function join() {
     let agree = $("#a4:checked").length;
+    let mem_email = $("#email").val();
+    let mem_passwd = $("#passwd").val();
+    let mem_passwd_ck = $("#passwd_confirm").val();
+    let mem_nickname = $("#nickname").val();
+    let mem_key = $("#email_certification").val();
     if (agree == 0) {
         $(".form_alert").removeClass('none');
         $(".form_alert").html("약관 동의는 필수입니다.");
         return false;
-    } else if ($("#email").val() == "" || $("#passwd").val() == "" || $("#passwd_confirm").val() == "") {
+    } else if (mem_email == "" || mem_passwd == "" || mem_passwd_ck == "") {
         $(".form_alert").removeClass('none');
         $(".form_alert").html("빈칸을 채워주세요.");
         $(".member_txt").addClass("wrong_type");
@@ -215,27 +188,30 @@ function join() {
         $(".form_alert").html("중복된 아이디나 닉네임은 사용할 수 없습니다.");
     } else {
         $(".form_alert").addClass("none");
-        let param = {
-            "mem_email": $("#email").val(),
-            "mem_passwd": $("#passwd").val(),
-            "mem_nickname": $("#nickname").val()
-        };
-        $.ajax({
-            url: "/member/join",
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(param),
-            success: function (data) {
-                if (data.state == 200) {
-                    location.href = "/member/login";
-                    alert("반가워요! 로그인 해주세요 :)");
-                } else {
-                    alert("죄송해요 :( 다시 시도해주세요.");
-                }
-            }, error: function (a, b, c) {
-                console.error(c);
+        let emailConfirm_param = {
+            "mail_address": mem_email,
+            "mail_key": mem_key,
+            "mail_state": 1
+        }
+        let ajx_result_emailConfirm = public_ajax("/mail/certification", emailConfirm_param);
+        let count = (!(ajx_result_emailConfirm.result)) ? null : (ajx_result_emailConfirm.result)["count(*)"];
+        if (count > 0) {
+            let join_param = {
+                "mem_email": mem_email,
+                "mem_passwd": mem_passwd,
+                "mem_nickname": mem_nickname
+            };
+            let ajx_result_join = public_ajax("/member/join", join_param);
+            if (ajx_result_join.state == 200) {
+                location.href = "/member/login";
+                alert("반가워요! 로그인 해주세요 :)");
+            } else {
+                alert("죄송해요 :( 다시 시도해주세요.");
             }
-        });
+        } else {
+            alert("이메일 인증을 완료해주세요.");
+            $("#email").focus();
+            return false;
+        }
     }
 }

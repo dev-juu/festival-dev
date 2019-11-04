@@ -1,17 +1,32 @@
+let $window = $(window);
+let $document = $(document);
 let url = location.href;
 let result = null;
 
 $(function () {
     let cookie = getCookie('_fid');
-    console.log(cookie);
     (cookie == null) ? $(".login").removeClass("none") : $(".logout").removeClass("none");
-    let window_height = $(window).height();
+    let window_height = $window.height();
     let doc_height = $(document).height() - $(".footer_").height();
     if (doc_height < window_height) {
         $(".footer_").css('position', 'fixed');
     }
     header_select();
+
+    // mobile_footer();
+
 });
+
+// function mobile_footer() {
+//     if (matchMedia("screen and (max-width: 768)").matches) {
+//         $window.on('scroll', function () {
+//             // 현재의 위치 = 스크롤이 이동한 값 + 윈도우 높이 - 처음에 선언한 지연 위치값(200);
+//             console.log("윈도우 높이" + ($document.height() - $window.height()));
+//             console.log("스크롤 높이" + window.scrollY);
+//         });
+//     }
+//     // transition: top 0.2s ease-in-out;
+// }
 
 function getCookie(name) {
     let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -63,7 +78,7 @@ function public_ajax(url, param = '') {
         url: url,
         dataType: "json",
         type: "POST",
-        contentType: 'application/json', // 추가
+        contentType: 'application/json;charset=utf-8', // 추가
         async: false,
         data: JSON.stringify(param),
         success: function (data) {

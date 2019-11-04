@@ -45,6 +45,7 @@ public class MailServiceImpl implements MailService {
         MimeMessagePreparator message = mimeMessage -> {
             String content = build(text);
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setFrom("qwqqq12dev@gmail.com");
             messageHelper.setTo(to);
             messageHelper.setSubject(subject);
             messageHelper.setText(content, true);
@@ -61,7 +62,7 @@ public class MailServiceImpl implements MailService {
     public String build(String text) {
         Context context = new Context();
         context.setVariable("text", text);
-        return templateEngine.process("/member/mail", context);
+        return templateEngine.process("member/mail", context);
     }
 
     @Override
