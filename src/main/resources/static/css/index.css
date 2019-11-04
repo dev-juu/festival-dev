@@ -41,6 +41,11 @@
     border: 1px solid rebeccapurple;
 }
 
+.wrap,.wrap li{
+    list-style:none;
+}
+
+
 #slide {
     margin: 0px;
     padding: 0px;
@@ -75,10 +80,24 @@
 }
 
 #slide .wrap img {
+    float: left;
+    width: 100%;
     height: 100%;
 }
 
-#slide .wrap img, #slide .wrap_title .ws_title {
+.wrap, .wrap_title{
+    transition: all 1s !important;
+}
+
+.wrap li{
+    height: 100%;
+    float: left;
+}
+.wrap li img{
+    width: 100%;
+}
+
+#slide .wrap li, #slide .wrap_title .ws_title {
     width: calc(100% / 3);
     float: left;
 }
@@ -91,23 +110,19 @@
     text-shadow: 2px 3px 10px black;
 }
 
-#slide input {
-    display: none;
-}
-
-/*안보이게 만든 radio대신 label을 radio로 만들기*/
-#slide label {
+#slide .dot{
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
     height: 5px;
     border: none;
-    display: inline-block;
     vertical-align: middle;
     background: #fff;
     transition: 0.3s;
     cursor: pointer;
 }
 
-/*label들*/
+/*div들*/
 #slide .pos {
     text-align: center;
     position: absolute;
@@ -116,11 +131,8 @@
     width: 100%;
 }
 
-/* bullet 조작 */
-#pos0:checked ~ .pos label:nth-child(1),
-#pos1:checked ~ .pos label:nth-child(2),
-#pos2:checked ~ .pos label:nth-child(3) {
-    background: #3494E6;
+.select{
+    background: #3494E6 !important;
 }
 
 .wrap_arrow {
@@ -186,7 +198,7 @@
         padding-left: 20px;
     }
 
-    #slide, #slide .wrap, #slide .wrap img {
+    #slide, #slide .wrap, #slide .wrap li img {
         height: 100%;
     }
 
@@ -194,7 +206,7 @@
         padding: 0px 20px;
     }
 
-    #slide label {
+    #slide .dot {
         width: 30px;
         height: 5px;
         border: none;
@@ -223,7 +235,7 @@
         font-size: 10px;
     }
 
-    #slide .wrap img, #slide .wrap_title .ws_title {
+    #slide .wrap li img, #slide .wrap_title .ws_title {
         margin-bottom: 10px;
     }
 
