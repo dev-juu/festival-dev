@@ -17,29 +17,29 @@
     <div class="top_body_">
         <section class="main_banner_">
             <div id="slide">
-                <div class="wrap">
-                    <img src="images/example/ex02.jpg" alt="DJing"
-                         title="2DAYS / 4STAGES OVER 80 ACTS">
-                    <img src="images/example/ex01.jpg" alt="Rock" title="2020 COMPLETE LINEUP">
-                    <img src="images/example/ex03.jpg" alt="Colorful"
-                         title="PHASE 5 ANNOUNCED">
-                </div>
+                <ul class="wrap">
+                    <li><img class="b_img" src="images/example/ex02.jpg" alt="DJing"
+                         title="2DAYS / 4STAGES OVER 80 ACTS"></li>
+                    <li><img class="b_img" src="images/example/ex01.jpg" alt="Rock" title="2020 COMPLETE LINEUP"></li>
+                    <li><img class="b_img" src="images/example/ex03.jpg" alt="Colorful"
+                         title="PHASE 5 ANNOUNCED"></li>
+                </ul>
                 <div class="wrap_title">
                     <p class="ws_title">2DAYS / 4STAGES OVER 80 ACTS</p>
                     <p class="ws_title">2020 COMPLETE LINEUP</p>
                     <p class="ws_title">PHASE 5 ANNOUNCED</p>
                 </div>
-                <input type="radio" name="pos" id="pos0" checked>
-                <input type="radio" name="pos" id="pos1">
-                <input type="radio" name="pos" id="pos2">
+<!--                <input type="radio" name="pos" id="pos0" checked>-->
+<!--                <input type="radio" name="pos" id="pos1">-->
+<!--                <input type="radio" name="pos" id="pos2">-->
                 <div class="pos">
-                    <label for="pos0" onclick="click_slide(0)"></label>
-                    <label for="pos1" onclick="click_slide(1)"></label>
-                    <label for="pos2" onclick="click_slide(2)"></label>
+                    <div id="pos1" class="dot select" onclick="clickDiv(1)"></div>
+                    <div id="pos2" class="dot" onclick="clickDiv(2)"></div>
+                    <div id="pos3" class="dot" onclick="clickDiv(3)"></div>
                 </div>
                 <div class="wrap_arrow">
-                    <button type="button" id="wrap_prev" onclick="click_arrow(-1)"></button>
-                    <button type="button" id="wrap_next" onclick="click_arrow(1)"></button>
+                    <button type="button" id="wrap_prev" onclick="moveDiv(-1)"></button>
+                    <button type="button" id="wrap_next" onclick="moveDiv(+1)"></button>
                 </div>
             </div>
         </section>
